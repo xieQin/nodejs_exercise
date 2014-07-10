@@ -13,11 +13,11 @@ function start(route, handle) {
 		// console.log(url.parse(request.url));
 		console.log("Request for " + pathname + " received.");
 
-		response.writeHead(200, {"Content-Type": "text/plain"});
-		var content = route(handle, pathname)
-		// route(handle, pathname);
-		response.write(content);
-		response.end();
+		// response.writeHead(200, {"Content-Type": "text/plain"});
+		// var content = route(handle, pathname)
+		route(handle, pathname, request, response);
+		// response.write(content);
+		// response.end();
 	}
 
 	http.createServer(onRequest).listen(8888);
